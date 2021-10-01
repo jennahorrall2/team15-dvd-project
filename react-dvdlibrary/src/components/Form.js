@@ -29,13 +29,15 @@ function Form() {
   const [rating, setRating] = useState("G")
   const [notes, setNotes] = useState("")
   
-  const createMovie = async() => {
+  const localCreateDvd = async(e) => {
+    e.preventDefault();
+    const Dvd = {title, year, director, rating, notes}
     const response = await createDvd({title, year, director, rating, notes})
     return response
   }
 
   return (
-    <form onSubmit={createMovie}>
+    <form method="POST" onSubmit={localCreateDvd}>
       <Center>
         <Box width="50%">
           <FormControl id="title" isRequired>
