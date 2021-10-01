@@ -1,7 +1,7 @@
-const apiUrl = "http://dvd-library.us-east-1.elasticbeanstalk.com/"
+const url = "http://dvd-library.us-east-1.elasticbeanstalk.com/";
 
 export const createDvd = async (Dvd) => {
-    console.log(JSON.stringify(Dvd))
+    console.log(JSON.stringify(Dvd));
     const body = {
         method: 'POST',
         mode: 'cors',
@@ -13,7 +13,12 @@ export const createDvd = async (Dvd) => {
         credentials: 'same-origin',
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-    }
-    const response = await fetch(`${apiUrl}dvd`, body)
+    };
+    const response = await fetch(`${url}dvd`, body);
+    return response;
+}
+
+export const getDvds = async () => {
+    const response = await fetch(`${url}dvds`);
     return response;
 }
