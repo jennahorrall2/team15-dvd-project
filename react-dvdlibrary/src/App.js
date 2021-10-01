@@ -1,12 +1,12 @@
 import './App.css';
 import Form from './components/Form';
 
-import LibraryPage from './pages/LibraryPage';
+import Library from './components/Library';
 
 function App() {
   return (
     <div className="App">
-      <Form></Form>
+      <Library></Library>
     </div>
   );
 }
