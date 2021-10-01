@@ -18,19 +18,20 @@ import {
   useState
 } from "react"
 
+import {
+  createDvd
+} from '../controller'
+
 function Form() {
   const [title, setTitle] = useState("")
   const [year, setYear] = useState(2021)
   const [director, setDirector] = useState("")
   const [rating, setRating] = useState("G")
   const [notes, setNotes] = useState("")
-
-  const createMovie = () => {
-    console.log(title)
-    console.log(year)
-    console.log(director)
-    console.log(rating)
-    console.log(notes)
+  
+  const createMovie = async() => {
+    const response = await createDvd({title, year, director, rating, notes})
+    return response
   }
 
   return (
@@ -39,7 +40,11 @@ function Form() {
         <Box width="50%">
           <FormControl id="title" isRequired>
             <FormLabel>Title</FormLabel>
-            <Input placeholder="Title" onChange={({ target }) => setTitle(target.value)} value={title} />
+            <Input 
+              placeholder="Title" 
+              onChange={({ target }) => setTitle(target.value)} 
+              value={title} 
+            />
           </FormControl>
 
           <FormControl id="year">
