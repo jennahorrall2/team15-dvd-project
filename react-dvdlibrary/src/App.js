@@ -1,9 +1,11 @@
 import './App.css';
 
+import LibraryPage from './pages/LibraryPage';
+
 function App() {
   return (
     <div className="App">
-      <h1>Dion edited this</h1>
+      <LibraryPage></LibraryPage>
     </div>
   );
 }
