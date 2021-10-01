@@ -13,7 +13,7 @@ function LibraryPage() {
         }
     }
 
-    const [dvds, setDvds] = [new Dvd(1, "Lala Land", 2016, "Damien Chazelle", 9.8, ""), new Dvd(2, "yuh", 1000, "bruh", 10, "")];
+    const [dvds, setDvds] = useState([new Dvd(1, "Lala Land", 2016, "Damien Chazelle", 9.8, ""), new Dvd(2, "yuh", 1000, "bruh", 10, "")]);
 
     return (
         <div>
