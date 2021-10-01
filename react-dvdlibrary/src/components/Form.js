@@ -22,7 +22,7 @@ function Form() {
   const [title, setTitle] = useState("")
   const [year, setYear] = useState(2021)
   const [director, setDirector] = useState("")
-  const [rating, setRating] = useState(0.0)
+  const [rating, setRating] = useState("G")
   const [notes, setNotes] = useState("")
 
   const createMovie = () => {
@@ -45,8 +45,8 @@ function Form() {
           <FormControl id="year">
             <FormLabel>Year</FormLabel>
             <NumberInput 
-              max={2022} 
-              min={1900} 
+              max={10000} 
+              min={1000} 
               value={year} 
               onChange={(year) => setYear(year)}
             >
@@ -68,18 +68,23 @@ function Form() {
           <FormControl id="rating" >
           <FormLabel>Rating</FormLabel>
             <Select 
-              placeholder="Select Rating" 
               value={rating}
               onChange={({target}) => setRating(target.value)}
             >
-              <option value="rating1">Rating 1</option>
-              <option value="rating2">Rating 2</option>
-              <option value="rating3">Rating 3</option>
+              <option value="G">G</option>
+              <option value="PG">PG</option>
+              <option value="PG-13">PG-13</option>
+              <option value="R">R</option>
+              <option value="NC-17">NC-17</option>
             </Select>
           </FormControl>
           <FormControl>
             <FormLabel>Notes</FormLabel>
-            <Textarea resize="none" placeholder="Notes" value={notes} onChange={({ target }) => setNotes(target.value)} />
+            <Textarea resize="none" 
+              placeholder="Notes" 
+              value={notes} 
+              onChange={({ target }) => setNotes(target.value)} 
+            />
           </FormControl>
           <FormControl>
             <Button type="submit">Hi</Button>
