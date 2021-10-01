@@ -1,19 +1,14 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function LibraryPage() {
     // Temporary class. When we actually get data from the database it'll already be in json.
-    class Dvd {
-        constructor(id, title, releaseYear, director, rating, notes) {
-            this.id = id;
-            this.title = title;
-            this.releaseYear = releaseYear;
-            this.director = director;
-            this.rating = rating
-            this.notes = notes;
-        }
-    }
+    const [dvds, setDvds] = useState([]);
 
-    const [dvds, setDvds] = useState([new Dvd(1, "Lala Land", 2016, "Damien Chazelle", 9.8, ""), new Dvd(2, "yuh", 1000, "bruh", 10, "")]);
+    useEffect(() => {
+        fetch("http://dvd-library.us-east-1.elasticbeanstalk.com/dvds")
+            .then(response => response.json())
+            .then(response => setDvds(response));
+    }, []);
 
     return (
         <div>
